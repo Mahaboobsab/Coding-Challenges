@@ -61,3 +61,19 @@ Output
 
 Before Swap A: 10 B : 20  
 After Swap A: 20 B : 10
+
+## 5 - Swap two number's [Approch 3 Generic's]
+```swift
+var a = 10.0
+var b = 20.0
+func swapTwoNumbers<T>( _ a:inout T, _ b: inout T) {
+ (a,b) = (b,a)
+}
+print("Before Swap : A \(a) B : \(b)")
+print(swap(&a, &b))
+print("After Swap : A \(a) B : \(b)")
+```
+
+Output  
+Before Swap : A 10.0   B : 20.0  
+After Swap : A 20.0   B : 10.0
