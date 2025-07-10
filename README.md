@@ -94,3 +94,21 @@ if a < 1 {
 ```
 Output  
 120
+
+## 7 - Swap Index of an array of position 0 & 2
+
+```swift
+var numbers = [10,20,30]
+
+func swapIndexOfAnArray<T>(_ array: inout [T], i: Int, j: Int) {
+array.swapAt(i, j)
+}
+
+print("Before Swap: \(numbers)")
+swapIndexOfAnArray(&numbers, i: 0, j: 2)
+print("After Swap: \(numbers)")
+```
+Output  
+Before Swap: [10, 20, 30]  
+After Swap: [30, 20, 10]
+
