@@ -78,7 +78,7 @@ Output
 ["a", "b", "c", "d", "e"] - For Strings
 
 
-## 3 - Swap two number's [Approch 1 Math trick]
+## 3(a) - Swap two number's [Approch 1 Math trick]
 
 ```swift
 var a = 10
@@ -94,7 +94,7 @@ Output
 Before Swap A: 10 B : 20  
 After Swap A: 20 B : 10
 
-## 4 - Swap two number's [Approch 2 Tuples]
+## 3(b) - Swap two number's [Approch 2 Tuples]
 
 ```swift
 var a = 10
@@ -108,7 +108,7 @@ Output
 Before Swap A: 10 B : 20  
 After Swap A: 20 B : 10
 
-## 5 - Swap two number's [Approch 3 Generic's]
+## 3(c) - Swap two number's [Approch 3 Generic's]
 ```swift
 var a = 10.0
 var b = 20.0
@@ -124,7 +124,7 @@ Output
 Before Swap : A 10.0   B : 20.0  
 After Swap : A 20.0   B : 10.0
 
-## 6 - Factorial of given number
+## 4 - Factorial of given number
 ```swift
 var a = 5
 var result = 1
@@ -141,7 +141,7 @@ if a < 1 {
 Output  
 120
 
-## 7 - Swap Index of an array of position 0 & 2
+## 5 - Swap Index of an array of position 0 & 2
 
 ```swift
 var numbers = [10,20,30]
