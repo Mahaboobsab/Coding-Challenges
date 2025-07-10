@@ -32,3 +32,20 @@ print(resultArray.sorted())
 Output  
 [1, 2, 3, 4, 5, 6, 8, 9]
 
+## 3 - Swap two number's [Approch 1]
+
+```swift
+var a = 10
+var b = 20
+print("Before Swap A: \(a) B : \(b)")
+// Using Tuples
+// (a,b) = (b,a)
+a = a + b
+b = a - b
+a = a - b
+print("After Swap A: \(a) B : \(b)")
+```
+Output  
+
+Before Swap A: 10 B : 20  
+After Swap A: 20 B : 10
