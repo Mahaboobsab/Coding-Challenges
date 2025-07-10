@@ -16,7 +16,7 @@ Output
 3 + 7 == 10  
 6 + 4 == 1
 
-## 2 - Remove duplicates from Array
+## 2(a) - Remove duplicates from Array [Approch Sorted]
 ```swift
 let array = [2,3,4,5,6,1,9,1,3,6,8,9]
 
@@ -27,10 +27,56 @@ for element in array {
         resultArray.append(element)
     }
 }
+// alter the actaul array
 print(resultArray.sorted())
 ```
 Output  
 [1, 2, 3, 4, 5, 6, 8, 9]
+
+## 2(b) - Remove duplicates [Approch - Extension]
+```swift
+extension Array where Element == Int {
+  func removeDuplicates() -> [Int] {
+    var temparoryArray = [Int]()
+     for element in self {
+        if !temparoryArray.contains(element){
+             temparoryArray.append(element)
+          }
+    }
+    return temparoryArray
+  }
+}
+
+var array = [3,5,3,4,2,3,4,5,6,7,8,9,5,4]
+print(array.removeDuplicates())
+```
+Output  
+[3, 5, 4, 2, 6, 7, 8, 9]  
+
+## 2(c) - Remove duplicates [Generics]
+
+```swift
+extension Array where Element: Equatable {
+  func removeDuplicates() -> [Element] {
+    var temparoryArray = [Element]()
+     for element in self {
+        if !temparoryArray.contains(element){
+             temparoryArray.append(element)
+          }
+    }
+    return temparoryArray
+  }
+}
+var array = [1,3,2,4,5,6,4,3,7,8]
+//var array = ["a","b","a","c","d","e"]
+print(array.removeDuplicates())
+
+```
+
+Output  
+[1, 3, 2, 4, 5, 6, 7, 8] - For numbers  
+["a", "b", "c", "d", "e"] - For Strings
+
 
 ## 3 - Swap two number's [Approch 1 Math trick]
 
