@@ -15,3 +15,20 @@ for i in 0..<array.count {
 Output  
 3 + 7 == 10  
 6 + 4 == 1
+
+## 2 - Remove duplicates from Array
+```swift
+let array = [2,3,4,5,6,1,9,1,3,6,8,9]
+
+var resultArray = [Int]()
+
+for element in array {
+    if !resultArray.contains(element) {
+        resultArray.append(element)
+    }
+}
+print(resultArray.sorted())
+```
+Output  
+[1, 2, 3, 4, 5, 6, 8, 9]
+
