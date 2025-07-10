@@ -179,7 +179,7 @@ Output
 Before Swap: [10, 20, 30]  
 After Swap: [30, 20, 10]
 
-## 6(a) - Find the capital leeters in a given string
+## 6(a) - Find the capital leeters in a given string [Approch 1]
 ```swift
 //Find capital letters
 
@@ -202,3 +202,15 @@ print(x)
 Output  
 ["M", "R", "N"]
 
+## 6(b) - Find the capital leeters in a given string [Approch 2 Higher order function]
+```swift
+let nameStr = "Meheboob R Nadaf"
+
+let xx = nameStr.filter({
+  ("A"..."Z").contains($0)
+})
+
+print(xx)
+```
+Output  
+MRN
