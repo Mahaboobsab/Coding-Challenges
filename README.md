@@ -214,3 +214,31 @@ print(xx)
 ```
 Output  
 MRN
+
+## 7 - Fing how many time the character repeats in a give string
+```swift
+let name = "hello world"
+var dict = [Character: Int]()
+
+for char in name {
+  if let i =  dict[char] {
+    dict[char] = (i + 1)
+  } else {
+    dict[char] = 1
+  }
+}
+
+for (char, count) in dict {
+  print("Char \(char) repeats \(count) times")
+}
+```
+Output  
+
+Char r repeats 1 times  
+Char l repeats 3 times  
+Char o repeats 2 times  
+Char h repeats 1 times  
+Char e repeats 1 times  
+Char w repeats 1 times  
+Char d repeats 1 times  
+Char   repeats 1 times
