@@ -77,3 +77,20 @@ print("After Swap : A \(a) B : \(b)")
 Output  
 Before Swap : A 10.0   B : 20.0  
 After Swap : A 20.0   B : 10.0
+
+## 6 - Factorial of given number
+```swift
+var a = 5
+var result = 1
+
+if a < 1 {
+  print("A should be greater than 0")
+} else {
+    while a > 0 {
+    result = result * a
+    a = a - 1
+  }
+}
+```
+Output  
+120
