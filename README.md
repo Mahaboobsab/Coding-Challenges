@@ -77,6 +77,27 @@ Output
 [1, 3, 2, 4, 5, 6, 7, 8] - For numbers  
 ["a", "b", "c", "d", "e"] - For Strings
 
+## 2(d) - Remove duplicates of an array [Approch - Mutating]
+```swift
+extension Array where Element: Equatable {
+ mutating func removeDuplicates() {
+    var temparoryArray = [Element]()
+     for element in self {
+        if !temparoryArray.contains(element){
+             temparoryArray.append(element)
+          }
+    }
+    // Assigning to itself
+    self = temparoryArray
+  }
+}
+var array = [1,3,2,4,5,6,4,3,7,8]
+//var array = ["a","b","a","c","d","e"]
+array.removeDuplicates()
+print(array)
+```
+Output  
+[1, 3, 2, 4, 5, 6, 7, 8]
 
 ## 3(a) - Swap two number's [Approch 1 Math trick]
 
