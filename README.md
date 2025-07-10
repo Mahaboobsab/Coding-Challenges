@@ -179,3 +179,26 @@ Output
 Before Swap: [10, 20, 30]  
 After Swap: [30, 20, 10]
 
+## 6(a) - Find the capital leeters in a given string
+```swift
+//Find capital letters
+
+let nameStr = "Meheboob R Nadaf"
+
+func removeDuplicateCharacters(str: String) -> [Character] {
+var characters = [Character]()
+
+for char in str {
+  if char >= "A" && char <= "Z" {
+    characters.append(char)
+  }
+}
+return characters
+}
+
+let x = removeDuplicateCharacters(str: nameStr)
+print(x)
+```
+Output  
+["M", "R", "N"]
+
