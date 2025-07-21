@@ -12,7 +12,8 @@ for i in 0..<array.count {
   }
 }
 ```
-Output  
+**Output**  
+
 3 + 7 == 10  
 6 + 4 == 1
 
@@ -30,7 +31,8 @@ for element in array {
 // alter the actaul array
 print(resultArray.sorted())
 ```
-Output  
+**Output**  
+
 [1, 2, 3, 4, 5, 6, 8, 9]
 
 ## 2(b) - Remove duplicates [Approch - Extension]
@@ -50,7 +52,8 @@ extension Array where Element == Int {
 var array = [3,5,3,4,2,3,4,5,6,7,8,9,5,4]
 print(array.removeDuplicates())
 ```
-Output  
+**Output**  
+
 [3, 5, 4, 2, 6, 7, 8, 9]  
 
 ## 2(c) - Remove duplicates [Generics]
@@ -73,7 +76,8 @@ print(array.removeDuplicates())
 
 ```
 
-Output  
+**Output**  
+
 [1, 3, 2, 4, 5, 6, 7, 8] - For numbers  
 ["a", "b", "c", "d", "e"] - For Strings
 
@@ -96,7 +100,8 @@ var array = [1,3,2,4,5,6,4,3,7,8]
 array.removeDuplicates()
 print(array)
 ```
-Output  
+**Output**  
+
 [1, 3, 2, 4, 5, 6, 7, 8]
 
 ## 3(a) - Swap two number's [Approch 1 Math trick]
@@ -110,7 +115,7 @@ b = a - b
 a = a - b
 print("After Swap A: \(a) B : \(b)")
 ```
-Output  
+**Output**  
 
 Before Swap A: 10 B : 20  
 After Swap A: 20 B : 10
@@ -124,7 +129,7 @@ print("Before Swap A: \(a) B : \(b)")
 (a,b) = (b,a)
 print("After Swap A: \(a) B : \(b)")
 ```
-Output  
+**Output**  
 
 Before Swap A: 10 B : 20  
 After Swap A: 20 B : 10
@@ -141,7 +146,8 @@ print(swap(&a, &b))
 print("After Swap : A \(a) B : \(b)")
 ```
 
-Output  
+**Output**  
+
 Before Swap : A 10.0   B : 20.0  
 After Swap : A 20.0   B : 10.0
 
@@ -159,7 +165,8 @@ if a < 1 {
   }
 }
 ```
-Output  
+**Output**  
+
 120
 
 ## 5 - Swap Index of an array of position 0 & 2
@@ -175,7 +182,8 @@ print("Before Swap: \(numbers)")
 swapIndexOfAnArray(&numbers, i: 0, j: 2)
 print("After Swap: \(numbers)")
 ```
-Output  
+**Output**  
+
 Before Swap: [10, 20, 30]  
 After Swap: [30, 20, 10]
 
@@ -199,7 +207,8 @@ return characters
 let x = removeDuplicateCharacters(str: nameStr)
 print(x)
 ```
-Output  
+**Output**  
+
 ["M", "R", "N"]
 
 ## 6(b) - Find the capital leeters in a given string [Approch 2 Higher order function]
@@ -212,7 +221,8 @@ let xx = nameStr.filter({
 
 print(xx)
 ```
-Output  
+**Output**  
+
 MRN
 
 ## 7 - Fing how many time the character repeats in a give string
@@ -232,7 +242,7 @@ for (char, count) in dict {
   print("Char \(char) repeats \(count) times")
 }
 ```
-Output  
+**Output**  
 
 Char r repeats 1 times  
 Char l repeats 3 times  
@@ -242,3 +252,16 @@ Char e repeats 1 times
 Char w repeats 1 times  
 Char d repeats 1 times  
 Char   repeats 1 times
+
+## 8: Reverse String
+
+```swift
+import Foundation
+let name = "Nadaf"
+let reversed = String(name.reversed())
+print(reversed)
+```
+
+**Output**  
+
+fadaN
