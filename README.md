@@ -167,7 +167,37 @@ if a < 1 {
 ```
 **Output**  
 
-120
+120  
+
+## Recusrion Approch
+
+
+```swift
+/*
+func factorial(n : UInt64) -> UInt64 {
+  return n < 2 ? 1 : n * factorial(n: (n-1))
+}
+
+print(factorial(n: 5))
+
+*/
+/*
+func factorial(n: UInt64) -> UInt64 {
+    print("Calling factorial(\(n))")
+    
+    if n < 2 {
+        print("Reached base case: factorial(\(n)) = 1")
+        return 1
+    } else {
+        let result = n * factorial(n: n - 1)
+        print("Computed factorial(\(n)) = \(result)")
+        return result
+    }
+}
+
+print("Final Result: \(factorial(n: 5))")
+*/
+```
 
 ## 5 - Swap Index of an array of position 0 & 2
 
