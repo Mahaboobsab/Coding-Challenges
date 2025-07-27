@@ -450,5 +450,29 @@ func testFetchUserList_withMockEmptyResponse_shouldReturnEmptyArray() {
     waitForExpectations(timeout: 1, handler: nil)
 }
 ```
+## 10: Sum of a given number from 1
 
+```swift
+import Foundation
 
+func getSumOfNumberFromOne( number:  Int) -> Int {
+    
+//    var result = 0
+//    var num = number
+//
+//    while num > 0 {
+//        result = result + num
+//        num -= 1
+//    }
+//
+//    return result
+    
+    return number * (number + 1) / 2
+}
+
+var num = 5
+print(getSumOfNumberFromOne(number: num))
+```
+**Output**  
+
+15
