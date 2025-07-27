@@ -11,6 +11,18 @@ for i in 0..<array.count {
     }
   }
 }
+
+---- OR ----
+let array = [3, 6, 2, 7, 4]
+var seen = Set<Int>()
+for num in array {
+    let complement = 10 - num
+    if seen.contains(complement) {
+        print("Element \(complement) + Element \(num) == 10")
+    }
+    seen.insert(num)
+}
+
 ```
 **Output**  
 
