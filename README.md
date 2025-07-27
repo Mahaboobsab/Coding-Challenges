@@ -476,3 +476,20 @@ print(getSumOfNumberFromOne(number: num))
 **Output**  
 
 15
+
+## 11: Fibonanci of a given number  
+
+```swift
+func fibonacci(upTo n: Int) -> [Int] {
+    guard n > 1 else { return [0] }
+
+    var sequence = [0, 1]
+    while sequence.count < n {
+        let next = sequence[sequence.count - 1] + sequence[sequence.count - 2]
+        sequence.append(next)
+    }
+    return sequence
+}
+
+print(fibonacci(upTo: 10))
+```
