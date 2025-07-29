@@ -550,3 +550,26 @@ print("Reversed: \(reversed)")
 ----O/P----  
 Original: [1, 2, 3, 4, 5]  
 Reversed: [5, 4, 3, 2, 1]
+
+## 14: Reverse a give number  
+
+```swift
+func reverseNumber(_ num: Int) -> Int {
+    var number = num
+    var reversed = 0
+
+    while number != 0 {
+        let digit = number % 10          // Get the last digit
+        reversed = reversed * 10 + digit // Append digit to reversed number
+        number /= 10                     // Remove the last digit
+    }
+
+    return reversed
+}
+
+// Test
+let original = 12345
+let reversed = reverseNumber(original)
+print("Original: \(original)")
+print("Reversed: \(reversed)")
+```
