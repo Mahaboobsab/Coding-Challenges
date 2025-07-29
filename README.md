@@ -505,3 +505,48 @@ func fibonacci(upTo n: Int) -> [Int] {
 
 print(fibonacci(upTo: 10))
 ```
+
+## 12: Reverse String without reversed() built in function
+
+```swift
+func reverseString(_ input: String) -> String {
+    var reversed = ""
+    for char in input {
+        reversed = String(char) + reversed
+        print(reversed)
+    }
+    return reversed
+}
+
+// Test
+let original = "hello"
+let reversed = reverseString(original)
+print("Original: \(original)")
+print("Reversed: \(reversed)")
+```
+
+----  O/P----  
+Original: hello  
+Reversed: olleh  
+
+## 13: Reverse Array without reversed() built in function  
+
+```swift
+func reverseArray(_ arr: [Int]) -> [Int] {
+    var reversed: [Int] = []
+    for element in arr {
+        reversed.insert(element, at: 0)
+    }
+    return reversed
+}
+
+// Test
+let original = [1, 2, 3, 4, 5]
+let reversed = reverseArray(original)
+print("Original: \(original)")
+print("Reversed: \(reversed)")
+```
+
+----O/P----  
+Original: [1, 2, 3, 4, 5]  
+Reversed: [5, 4, 3, 2, 1]
