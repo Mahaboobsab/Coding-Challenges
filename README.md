@@ -573,3 +573,19 @@ let reversed = reverseNumber(original)
 print("Original: \(original)")
 print("Reversed: \(reversed)")
 ```
+## 15: Quick sort using swift
+```swift
+func quickSort<T: Comparable>(_ array: [T]) -> [T] {
+    guard array.count > 1 else { return array }
+
+    let pivot = array[array.count / 2]
+    let less = array.filter { $0 < pivot }
+    let equal = array.filter { $0 == pivot }
+    let greater = array.filter { $0 > pivot }
+
+    return quickSort(less) + equal + quickSort(greater)
+}
+```
+
+------Output-----  
+[0, 1, 2, 3, 4, 5, 6, 9]
