@@ -588,4 +588,26 @@ func quickSort<T: Comparable>(_ array: [T]) -> [T] {
 ```
 
 ------Output-----  
-[0, 1, 2, 3, 4, 5, 6, 9]
+[0, 1, 2, 3, 4, 5, 6, 9]  
+
+## 16: Below compiles or not?  
+
+**Ans: No**  
+
+```swift
+protocol Drawable{
+  var edges: Int {get set}
+var shape: String {
+    return edges == 3 ? "Traingle" : "Quadrtotral"
+  }
+}
+```
+**It should be** 
+
+```Swift
+extension Drawable {
+var shape: String {
+    return edges == 3 ? "Traingle" : "Quadrtotral"
+  }
+}
+```
