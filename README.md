@@ -611,3 +611,23 @@ var shape: String {
   }
 }
 ```
+## 17: Write a logic to find repeated numbers in an array more than once?  
+
+```swift
+import Foundation
+
+func getRepeatedNumbers(array: [Int]) -> [Int: Int] {
+  var result = [Int: Int]()
+
+for element in array {
+  result[element, default: 0] += 1
+}
+  return result.filter({$0.value > 1})
+}
+
+let array = [2,4,3,1,6,7,5,9,0,3,9,9,2,4]
+
+print(getRepeatedNumbers(array: array))
+```
+------**Output**-----  
+[4: 2, 3: 2, 2: 2, 9: 3]
