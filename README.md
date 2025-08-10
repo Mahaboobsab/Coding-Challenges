@@ -631,3 +631,48 @@ print(getRepeatedNumbers(array: array))
 ```
 ------**Output**-----  
 [4: 2, 3: 2, 2: 2, 9: 3]
+
+## 18: Write a logic to convert 3[a]2[ccc] ?  
+```swift
+import Foundation
+
+func decodeString(_ s: String) -> String {
+    var countStack: [Int] = []
+    var stringStack: [String] = []
+    var currentNum = 0
+    var currentStr = ""
+
+    for ch in s {
+        if ch.isNumber {
+            // build the repeat count (may be multi-digit)
+            if let digit = ch.wholeNumberValue {
+                currentNum = currentNum * 10 + digit
+            }
+        } else if ch == "[" {
+            // push current state and reset for substring
+            countStack.append(currentNum)
+            stringStack.append(currentStr)
+            currentNum = 0
+            currentStr = ""
+        } else if ch == "]" {
+            // pop and build expanded string
+            let repeatCount = countStack.popLast() ?? 1
+            let prevStr = stringStack.popLast() ?? ""
+            let expanded = String(repeating: currentStr, count: repeatCount)
+            currentStr = prevStr + expanded
+        } else {
+            // regular character, append to current substring
+            currentStr.append(ch)
+        }
+    }
+
+    return currentStr
+}
+
+// Example usage:
+let input = "3[a]2[bcc]"
+let output = decodeString(input)
+print(output)  // prints: aaabccbcc
+```
+---Output---  
+aaabccbcc
