@@ -675,4 +675,26 @@ let output = decodeString(input)
 print(output)  // prints: aaabccbcc
 ```
 ---Output---  
-aaabccbcc
+aaabccbcc  
+
+## What is the output of below  
+```swift
+var a = 11
+
+let x = { [a] in
+   return a
+}
+
+a = 5
+print(x())
+```
+--- output ----  
+11  
+
+**🧠 What’s Happening?**
+* a is initially 11.
+* The closure x captures a using [a] — this is an explicit capture list.
+* Then a is reassigned to 5.
+* Finally, x() is called.
+  
+
