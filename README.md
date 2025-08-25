@@ -263,6 +263,13 @@ let xx = nameStr.filter({
 
 print(xx)
 ```
+
+```swift
+let name = "Meheboob R Nadaf"
+let x = name.filter({$0.isUppercase})
+print(x) // MRN
+```
+
 **Output**  
 
 MRN
