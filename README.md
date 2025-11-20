@@ -550,5 +550,155 @@ print(x())
 * The closure x captures a using [a] — this is an explicit capture list.
 * Then a is reassigned to 5.
 * Finally, x() is called.
-  
+
+
+## Add comments on below PR  
+
+~~~swift
+import SwiftUI
+import Combine
+
+// MARK: - Main View
+// Add Access specifier
+struct CounterView: View {
+    
+    @StateObject var vm = CounterViewModel()
+    @State var localCount: Int = 0
+    @EnvironmentObject var sharedVM: CounterViewModel
+
+    var body: some View {
+        
+        // Move to seperete components
+        NavigationView {
+            VStack {
+                // COlors should come from constant file or app theme
+                Text("Count: \(vm.count)")
+                    .padding()
+                    .background(Color.yellow)
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.red, lineWidth: 2))
+
+                HStack {
+                    Button("+", action: {
+                        vm.increment()
+                        localCount += 1
+                    })
+                    .padding()
+
+                    Button("-", action: {
+                        vm.doDecrease()
+                        DispatchQueue.main.async {
+                            localCount -= 1
+                        }
+                    })
+                    .padding()
+                }
+
+                Toggle("Auto-Increment", isOn: Binding(
+                    get: { vm.isAutoIncrementing },
+                    set: { vm.toggleAutoIncrementing($0) }
+                ))
+                .padding()
+
+                // Navigation Path instaed of NavigationLink
+                NavigationLink("Show History", destination: HistoryView())
+                    .padding()
+            }
+            .onAppear {
+                localCount = vm.count
+                vm.startTimer()
+            }
+        }
+    }
+}
+
+
+
+// Craete seperete group for ViewModel
+// MARK: - ViewModel
+
+// Add Access specifier
+class CounterViewModel: ObservableObject {
+    
+    // Add MARK like properties
+    @Published var count: Int = 0
+    @Published var isAutoIncrementing: Bool = false
+    var timer: Timer?
+    
+    init() {
+        if let countValue =  UserDefaults.standard.value(forKey: "count") as? Int {
+            count = countValue
+            CounterHistoryStore.shared.load()
+        }
+        
+    }
+    
+    // Add Access specifier
+    func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            self.count += 1
+        }
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+    }
+    
+    func toggleAutoIncrementing(_ enabled: Bool) {
+        isAutoIncrementing = enabled
+        if enabled {
+            startTimer()
+        }
+    }
+    
+    func increment() {
+        count += 2
+        CounterHistoryStore.shared.history.append(count)
+        CounterHistoryStore.shared.save()
+        UserDefaults.standard.set(count, forKey: "count")
+    }
+    
+    func doDecrease() {
+        // Sshoul follow single responsibility & Persitancy should be handeled seperately example later swift Appstorage or core data
+        count = count - 1
+        CounterHistoryStore.shared.history.append(count)
+        CounterHistoryStore.shared.save()
+        UserDefaults.standard.set(count, forKey: "count")
+    }
+}
+
+// MARK: - History View
+
+// This should be moved to Reusable component
+struct HistoryView: View {
+    var body: some View {
+        List(CounterHistoryStore.shared.history, id: \ .self) { value in
+            Text("Previous Count: \(value)")
+        }
+        // Localization instead of hardcoding
+        .navigationTitle("History")
+    }
+}
+
+// MARK: - History Store
+
+class CounterHistoryStore {
+    
+    static let shared = CounterHistoryStore()
+    var history: [Int] = []
+    
+    func load() {
+        if let data = UserDefaults.standard.data(forKey: "history") {
+            // Do Try Catch
+            history = try! JSONDecoder().decode([Int].self, from: data)
+        }
+    }
+
+    func save() {
+        // Do Try Catch
+        let data = try! JSONEncoder().encode(history)
+        UserDefaults.standard.set(data, forKey: "history")
+    }
+}
+
+~~~
 
